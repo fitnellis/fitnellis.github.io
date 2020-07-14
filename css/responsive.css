@@ -231,7 +231,7 @@
 		line-height: 65px;
 		font-size: 18px;
 		left: 198px;
-		background: #fff;
+		background: #fff !important;
 		/* display:none; */
 	}
 	.offer-item div{
@@ -328,7 +328,7 @@
 		line-height: 65px;
 		font-size: 18px;
 		left: 198px;
-		background: #fff;
+		background: #fff !important;
 		/* display:none; */
 	}
 	.offer-item div{
