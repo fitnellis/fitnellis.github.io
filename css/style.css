@@ -882,6 +882,7 @@ max-height:110px;
     font-family: 'Roboto', sans-serif;
     text-align: center;
     letter-spacing: .5px;
+    background: #fff !important;
 }
 
 .offer-item div h3 {
