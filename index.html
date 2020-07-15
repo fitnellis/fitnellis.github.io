@@ -541,6 +541,7 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
 ga('create', 'UA-172742593-1', 'auto');
+
 </script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -559,6 +560,8 @@ ga('create', 'UA-172742593-1', 'auto');
     <script>
     function sendConversion() {
       ga('send', 'event', 'whatsapp','click', 'Novo contato');
+      // ga('send', 'pageview');
+      console.log('conversion')
     }
     (function(){
         new InstagramFeed({
