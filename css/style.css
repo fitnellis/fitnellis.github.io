@@ -85,9 +85,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 #btn-assinar {
-  /* background-color: white; */
-  color: #333;
-  border: 1px solid #008000; /* Green */
+  background-color: #008000;
+  color: #fff;
+  border: 1px solid #fff; /* Green */
 }
 
 #menu {
