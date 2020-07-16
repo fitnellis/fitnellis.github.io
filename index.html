@@ -330,7 +330,7 @@
           <p>A Fitnelli's tem a especialidade em criar deliciosos pratos funcionais, agregando mais sabor à sua refeição.
             Além de massas, criamos molhos com ingredientes orgânicos selecionados e frescos.
           </p>
-          <p><a data-mooform-id="fa6d5afe-143e-4051-b204-956e8b717ba4" href="#">Clique aqui</a> e assine nosso cardápio e receba em seu email nossas novidades!</p>
+          <p><button data-mooform-id="fa6d5afe-143e-4051-b204-956e8b717ba4" id="btn-assinar"><b>Clique aqui</b></button> e assine nosso cardápio e receba em seu email nossas novidades!</p>
           </div>
         </div>
         <!-- end col -->
@@ -763,7 +763,18 @@
         });
       })();
     </script>
+    <script>
 
+    if(!window.mootrack){ !function(t,n,e,o,a){function d(t){var n=~~(Date.now()/3e5),o=document.createElement(e);o.async=!0,o.src=t+"?ts="+n;var a=document.getElementsByTagName(e)[0];a.parentNode.insertBefore(o,a)}t.MooTrackerObject=a,t[a]=t[a]||function(){return t[a].q?void t[a].q.push(arguments):void(t[a].q=[arguments])},window.attachEvent?window.attachEvent("onload",d.bind(this,o)):window.addEventListener("load",d.bind(this,o),!1)}(window,document,"script","https://cdn.stat-track.com/statics/moosend-tracking.min.js","mootrack"); } mootrack('loadForm', 'fa6d5afe143e4051b204956e8b717ba4');
+
+    function loadCTA() {
+      mootrack('loadForm', 'fa6d5afe143e4051b204956e8b717ba4');
+    }
+
+    var modbtn = document.getElementById('btn-assinar');
+    modbtn.addEventListener("click", loadCTA, false);
+
+    </script>
 
 
     </body>

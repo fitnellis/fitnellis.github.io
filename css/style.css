@@ -84,6 +84,12 @@ body::-webkit-scrollbar-thumb {
   border: 3px solid #fff;  /* creates padding around scroll thumb */
 }
 
+#btn-assinar {
+  /* background-color: white; */
+  color: #333;
+  border: 1px solid #008000; /* Green */
+}
+
 #menu {
   background-image:-moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.57) 0%,rgba(0, 0, 0, 0.87) 100%), url(..images/banner5.jpg);
   background-image:-webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0.57) 0%,rgba(0, 0, 0, 0.87) 100%), url(../images/banner5.jpg);
