@@ -87,7 +87,7 @@ body::-webkit-scrollbar-thumb {
 #btn-assinar {
   background-color: #008000;
   color: #fff;
-  border: 1px solid #fff; /* Green */
+  border-radius: 20px;
 }
 
 #menu {
