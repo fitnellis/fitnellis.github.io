@@ -688,7 +688,7 @@
                       Object.keys(o).some(k => String(o[k]).toLowerCase().includes(string.toLowerCase())));
               }
 
-              oboe('https://raw.githubusercontent.com/fitnellis/fitnellis.github.io/master/receitas.json')
+              oboe('/receitas.json')
                .done(function(things) {
                   console.log(things)
                   recipes = things
