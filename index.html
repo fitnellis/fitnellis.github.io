@@ -713,7 +713,7 @@
               function searchRecipe() {
                 let key = document.getElementById('search-input').value;
                 let receitas = document.getElementById('receitas');
-                if (key.length => 3) {
+                if (key.length >= 2) {
                   result = filterByValue(recipes, key)
                   receitas.innerHTML = '';
                   if (result.length > 1) {
