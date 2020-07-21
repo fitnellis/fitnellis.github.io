@@ -688,7 +688,7 @@
                       Object.keys(o).some(k => String(o[k]).toLowerCase().includes(string.toLowerCase())));
               }
 
-              oboe('/receitas.json')
+              oboe('https://fitnellis.com.br/receitas.json')
                .done(function(things) {
                   console.log(things)
                   recipes = things
@@ -710,6 +710,18 @@
                       }
                   }
                }
+               function loadResult() {
+                 let lreceita = result[0];  
+                 receitas.innerHTML = '';
+                 receitas.innerHTML += '<h1>'+lreceita.nome+'</h1>'
+                 for(var secao in lreceita.secao) {
+                      console.log(secao, lreceita.secao[secao]);
+                      receitas.innerHTML += '<h2>' + lreceita.secao[secao].nome + '</h2>'
+                      for(var conteudo in lreceita.secao[secao].conteudo) {
+                        receitas.innerHTML += '<span>' + lreceita.secao[secao].conteudo[conteudo] + '</span> <br />'
+                      }
+                  }
+               }
               function searchRecipe() {
                 let key = document.getElementById('search-input').value;
                 let receitas = document.getElementById('receitas');
@@ -718,11 +730,11 @@
                   receitas.innerHTML = '';
                   if (result.length > 1) {
                     for (let i=0;i<result.length;i++) {
-                      receitas.innerHTML += '<h2 onclick="loadRecipe('+i+')">'+result[i].nome+'</h2>';
+                      receitas.innerHTML += '<h2 class="result-item" onclick="loadRecipe('+i+')">'+result[i].nome+'</h2>';
                     }
                   }
                   else {
-                    loadRecipe(i)
+                    loadResult()
                   }
 
                 } else {
@@ -731,7 +743,9 @@
 
               }
               </script>
-              <input id="search-input" onkeydown="searchRecipe()" onchange="searchRecipe()" onblur="searchRecipe()" type="text" placeholder="Buscar receita"></input>
+              <input id="search-input" class="searchinput" onkeydown="searchRecipe()" onchange="searchRecipe()" onblur="searchRecipe()" type="text" placeholder="Buscar receita"></input>
+              <br />
+              <br />
             <div id="receitas"></div>
           </div>
         </div>

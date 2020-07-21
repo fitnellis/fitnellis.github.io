@@ -208,6 +208,18 @@ a,
     padding: 0;
 }
 
+.searchinput {
+    line-height: 2em;
+    border: 1px solid #008033;
+    color: #008033;
+}
+
+.result-item {
+  color: #008033;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 blockquote {
     margin: 20px 0 20px;
     padding: 30px;
