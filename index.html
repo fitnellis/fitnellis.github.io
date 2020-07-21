@@ -56,6 +56,7 @@
   <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
   <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
   <![endif]-->
+
   <script type="application/ld+json">
   {
       "@context": "http://schema.org",
@@ -670,6 +671,87 @@
       <!-- end container -->
     </div>
 
+
+    <div id="gallery" class="gallery-main pad-top-100 pad-bottom-100">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <h2 class="block-title text-center">
+                Livro de Receitas
+                <!-- <i class="fa fa-instagram" style="color:#8dc63f;"></i> -->
+              </h2>
+              <script>
+              var recipes = null;
+              var result = null;
+              function filterByValue(array, string) {
+                  return array.filter(o =>
+                      Object.keys(o).some(k => String(o[k]).toLowerCase().includes(string.toLowerCase())));
+              }
+
+              oboe('https://raw.githubusercontent.com/fitnellis/fitnellis.github.io/master/receitas.json')
+               .done(function(things) {
+                  console.log(things)
+                  recipes = things
+                  // we got it
+               })
+               .fail(function() {
+
+                  // we don't got it
+               });
+               function loadRecipe(i) {
+                 let lreceita = result[i];
+                 receitas.innerHTML = '';
+                 receitas.innerHTML += '<h1>'+lreceita.nome+'</h1>'
+                 for(var secao in lreceita.secao) {
+                      console.log(secao, lreceita.secao[secao]);
+                      receitas.innerHTML += '<h2>' + lreceita.secao[secao].nome + '</h2>'
+                      for(var conteudo in lreceita.secao[secao].conteudo) {
+                        receitas.innerHTML += '<span>' + lreceita.secao[secao].conteudo[conteudo] + '</span> <br />'
+                      }
+                  }
+               }
+               function loadResult(i) {
+                 let lreceita = result[i];
+                 receitas.innerHTML = '';
+                 receitas.innerHTML += '<h1>'+lreceita.nome+'</h1>'
+                 for(var secao in lreceita.secao) {
+                      console.log(secao, lreceita.secao[secao]);
+                      receitas.innerHTML += '<h2>' + lreceita.secao[secao].nome + '</h2>'
+                      for(var conteudo in lreceita.secao[secao].conteudo) {
+                        receitas.innerHTML += '<span>' + lreceita.secao[secao].conteudo[conteudo] + '</span> <br />'
+                      }
+                  }
+               }
+              function searchRecipe() {
+                let key = document.getElementById('search-input').value;
+                let receitas = document.getElementById('receitas');
+                if (key.length > 3) {
+                  result = filterByValue(recipes, key)
+                  receitas.innerHTML = '';
+                  if (result.length > 1) {
+                    for (let i=0;i<result.length;i++) {
+                      receitas.innerHTML += '<h2 onclick="loadRecipe('+i+')">'+result[i].nome+'</h2>';
+                    }
+                  }
+                  else {
+                    loadResult(i)
+                  }
+
+                } else {
+                  receitas.innerHTML = '';
+                }
+
+              }
+              </script>
+              <input id="search-input" onkeydown="searchRecipe()" onchange="searchRecipe()" type="text" placeholder="Buscar receita"></input>
+            <div id="receitas"></div>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </div>
+
     <div id="footer" class="footer-main">
       <div class="footer-box pad-top-70">
         <div class="container">
@@ -785,17 +867,6 @@
           'on_error': console.error
         });
       })();
-    </script>
-    <script>
-      oboe('receitas.json')
-       .done(function(things) {
-          console.log(things)
-          // we got it
-       })
-       .fail(function() {
-
-          // we don't got it
-       });
     </script>
 
     </body>
