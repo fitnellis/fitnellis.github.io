@@ -710,18 +710,6 @@
                       }
                   }
                }
-               function loadResult(i) {
-                 let lreceita = result[i];
-                 receitas.innerHTML = '';
-                 receitas.innerHTML += '<h1>'+lreceita.nome+'</h1>'
-                 for(var secao in lreceita.secao) {
-                      console.log(secao, lreceita.secao[secao]);
-                      receitas.innerHTML += '<h2>' + lreceita.secao[secao].nome + '</h2>'
-                      for(var conteudo in lreceita.secao[secao].conteudo) {
-                        receitas.innerHTML += '<span>' + lreceita.secao[secao].conteudo[conteudo] + '</span> <br />'
-                      }
-                  }
-               }
               function searchRecipe() {
                 let key = document.getElementById('search-input').value;
                 let receitas = document.getElementById('receitas');
@@ -734,7 +722,7 @@
                     }
                   }
                   else {
-                    loadResult(i)
+                    loadRecipe(i)
                   }
 
                 } else {
